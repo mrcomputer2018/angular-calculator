@@ -1,18 +1,53 @@
-<div class="container">
-    <div class="form-box">
-        <form action="">
-            <h2>Calculadora</h2>
-            <div>
-                <label for=""></label>
-                <input />
+<section class="bg-gray-50">
+    <div
+        class="bg-gray-50 flex flex-col items-center justify-center mx-auto h-screen"
+    >
+        <form
+            class="bg-white border border-gray-200 w-[550px] shadow-sm py-8 px-6"
+            #calculatorForm="ngForm"
+            (ngSubmit)="calculatorResult()"
+        >
+            <h2 class="text-zinc-800 text-2xl uppercase text-center mb-4">
+                Calculadora
+            </h2>
+            <div class="mb-3 flex flex-col">
+                <label for="number1" class="mb-2">Numero 1</label>
+                <input
+                    type="number"
+                    name="number1"
+                    id="nunber1"
+                    [(ngModel)]="number1"
+                    placeholder="digite o priomeiro valor..."
+                    class="px-2 py-2 border border-gray-300 placeholder:text-gray-500 rounded"
+                />
             </div>
 
-            <div>
-                <label for=""></label>
-                <input />
+            <div class="mb-6 flex flex-col">
+                <label for="number2" class="mb-2">Numero 2</label>
+                <input
+                    type="number"
+                    name="number2"
+                    id="number2"
+                    [(ngModel)]="number2"
+                    placeholder="digite o segundo valor..."
+                    class="px-2 py-2 border border-gray-300 placeholder:text-gray-500 rounded"
+                />
             </div>
 
-            <button>Calcular</button>
+            <button
+                type="submit"
+                class="bg-zinc-800 text-white w-full py-2 rounded uppercase cursor-pointer hover:opacity-80 transtion color duration-400"
+            >
+                Calcular
+            </button>
         </form>
+
+        <div
+            *ngIf="result !== 0"
+            class="text-center text-zinc-800 mt-6 flex flex-col gap-3"
+        >
+            <span>Resultado da soma</span>
+            <span id="result" class="text-4xl font-bold">{{ result }}</span>
+        </div>
     </div>
-</div>
+</section>
